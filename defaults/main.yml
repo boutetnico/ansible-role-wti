@@ -1,0 +1,7 @@
+---
+wti_dependencies:
+  - ruby-rubygems
+
+wti_gem: web_translate_it
+
+wti_gem_state: present

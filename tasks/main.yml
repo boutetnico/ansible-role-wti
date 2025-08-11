@@ -1,0 +1,12 @@
+---
+- name: Install required dependencies
+  ansible.builtin.apt:
+    name: "{{ wti_dependencies }}"
+    update_cache: true
+    cache_valid_time: 86400
+
+- name: Install wti
+  community.general.gem:
+    name: "{{ wti_gem }}"
+    state: "{{ wti_gem_state }}"
+    user_install: false
