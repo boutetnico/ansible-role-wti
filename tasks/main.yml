@@ -3,7 +3,6 @@
   ansible.builtin.apt:
     name: "{{ wti_dependencies }}"
     update_cache: true
-    cache_valid_time: 86400
 
 - name: Install wti
   community.general.gem:

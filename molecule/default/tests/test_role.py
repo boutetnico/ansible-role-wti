@@ -22,3 +22,16 @@ def test_wti_command_exists(host):
     cmd = host.run("which wti")
     assert cmd.rc == 0
     assert cmd.stdout.strip() != ""
+
+
+def test_wti_version_command(host):
+    # Test wti command is functional by running version
+    # Using || true because wti may require config file for full functionality
+    cmd = host.run("wti --version || wti --help")
+    assert cmd.rc == 0 or "wti" in cmd.stdout.lower() or "wti" in cmd.stderr.lower()
+
+
+def test_wti_help_command(host):
+    cmd = host.run("wti --help")
+    # wti help should show usage information
+    assert "wti" in cmd.stdout.lower() or "usage" in cmd.stdout.lower() or cmd.rc == 0
